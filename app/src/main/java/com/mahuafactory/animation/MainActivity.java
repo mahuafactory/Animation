@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnView;
     private Button mBtnProperty;
     private Button mBtnLayoutAnimation;
+    private Button mBtnGridLayoutAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +29,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnProperty = (Button) findViewById(R.id.btn_property_animation);
         mBtnLayoutAnimation = (Button) findViewById(R.id.btn_layout_animation);
 
+        mBtnGridLayoutAnimation = (Button) findViewById(R.id.btn_grid_layout_animation);
+
         mBtnView.setOnClickListener(this);
         mBtnProperty.setOnClickListener(this);
         mBtnLayoutAnimation.setOnClickListener(this);
-
+        mBtnGridLayoutAnimation.setOnClickListener(this);
     }
 
     @Override
@@ -72,6 +75,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btn_layout_animation: {
                 Intent intent = new Intent(this, LayoutAnimationActivity.class);
+                startActivity(intent);
+            }
+            break;
+            case R.id.btn_grid_layout_animation: {
+                Intent intent = new Intent(this, GridLayoutAnimationActivity.class);
                 startActivity(intent);
             }
             break;

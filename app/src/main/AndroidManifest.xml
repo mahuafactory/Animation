@@ -27,6 +27,10 @@
         </activity>
         <activity android:name=".LayoutAnimationActivity">
         </activity>
+        <activity android:name=".GridLayoutAnimationActivity">
+        </activity>
+        <activity android:name=".LayoutTransationActivity">
+        </activity>
     </application>
 
 </manifest>
