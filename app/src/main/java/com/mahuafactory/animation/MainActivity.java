@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnProperty;
     private Button mBtnLayoutAnimation;
     private Button mBtnGridLayoutAnimation;
+    private Button mBtnLayoutTransition;
+    private Button mBtnBasicDraw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +33,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mBtnGridLayoutAnimation = (Button) findViewById(R.id.btn_grid_layout_animation);
 
+        mBtnLayoutTransition = (Button) findViewById(R.id.btn_layout_transition);
+
+        mBtnBasicDraw = (Button) findViewById(R.id.btn_basic_draw);
+
         mBtnView.setOnClickListener(this);
         mBtnProperty.setOnClickListener(this);
         mBtnLayoutAnimation.setOnClickListener(this);
         mBtnGridLayoutAnimation.setOnClickListener(this);
+        mBtnLayoutTransition.setOnClickListener(this);
+        mBtnBasicDraw.setOnClickListener(this);
     }
 
     @Override
@@ -80,6 +88,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             break;
             case R.id.btn_grid_layout_animation: {
                 Intent intent = new Intent(this, GridLayoutAnimationActivity.class);
+                startActivity(intent);
+            }
+            break;
+
+            case R.id.btn_layout_transition: {
+                Intent intent = new Intent(this, LayoutTransitionActivity.class);
+                startActivity(intent);
+            }
+            break;
+            case R.id.btn_basic_draw: {
+                Intent intent = new Intent(this, BasicDrawActivity.class);
                 startActivity(intent);
             }
             break;

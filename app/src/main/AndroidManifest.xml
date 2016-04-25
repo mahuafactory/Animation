@@ -29,7 +29,9 @@
         </activity>
         <activity android:name=".GridLayoutAnimationActivity">
         </activity>
-        <activity android:name=".LayoutTransationActivity">
+        <activity android:name=".LayoutTransitionActivity">
+        </activity>
+        <activity android:name=".BasicDrawActivity">
         </activity>
     </application>
 

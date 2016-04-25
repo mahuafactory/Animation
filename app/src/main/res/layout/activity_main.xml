@@ -56,6 +56,21 @@
             android:layout_height="wrap_content"
             android:text="gridLayoutAnimation"/>
 
+        <Button
+            android:layout_below="@id/btn_view_animation"
+            android:layout_toRightOf="@id/btn_grid_layout_animation"
+            android:id="@+id/btn_layout_transition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="layouttransition"/>
+
+        <Button
+            android:layout_below="@id/btn_layout_transition"
+            android:id="@+id/btn_basic_draw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="basicDraw"/>
+
 
     </RelativeLayout>
 

@@ -1,6 +1,7 @@
 package com.mahuafactory.animation;
 
 import android.os.Bundle;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -100,11 +101,11 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
             }
             break;
             case R.id.btn_linear: {
-                animation.setInterpolator(new LinearInterpolator());
+                animation.setInterpolator(new DecelerateInterpolator(2f));
             }
             break;
             case R.id.btn_overshoot: {
-                animation.setInterpolator(new OvershootInterpolator());
+                animation.setInterpolator(new DecelerateInterpolator());
             }
             break;
         }
