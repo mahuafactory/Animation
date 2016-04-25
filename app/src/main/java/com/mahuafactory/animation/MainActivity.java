@@ -2,6 +2,7 @@ package com.mahuafactory.animation;
 
 import android.animation.LayoutTransition;
 import android.content.Intent;
+import android.graphics.Xfermode;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnGridLayoutAnimation;
     private Button mBtnLayoutTransition;
     private Button mBtnBasicDraw;
+    private Button mBtnXfermodes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +39,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mBtnBasicDraw = (Button) findViewById(R.id.btn_basic_draw);
 
+        mBtnXfermodes = (Button) findViewById(R.id.btn_xfermodes);
+
         mBtnView.setOnClickListener(this);
         mBtnProperty.setOnClickListener(this);
         mBtnLayoutAnimation.setOnClickListener(this);
         mBtnGridLayoutAnimation.setOnClickListener(this);
         mBtnLayoutTransition.setOnClickListener(this);
         mBtnBasicDraw.setOnClickListener(this);
+        mBtnXfermodes.setOnClickListener(this);
     }
 
     @Override
@@ -99,6 +104,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             break;
             case R.id.btn_basic_draw: {
                 Intent intent = new Intent(this, BasicDrawActivity.class);
+                startActivity(intent);
+            }
+            break;
+            case R.id.btn_xfermodes: {
+                Intent intent = new Intent(this, Xfermodes.class);
                 startActivity(intent);
             }
             break;

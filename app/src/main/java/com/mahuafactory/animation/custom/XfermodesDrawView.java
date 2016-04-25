@@ -1,37 +1,27 @@
 package com.mahuafactory.animation.custom;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.LinearGradient;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
 import android.graphics.RectF;
-import android.graphics.Region;
-import android.graphics.RegionIterator;
 import android.graphics.Shader;
 import android.graphics.Xfermode;
-import android.graphics.drawable.Drawable;
-import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.animation.Transformation;
-import android.view.animation.TranslateAnimation;
 
 import com.mahuafactory.animation.R;
 
 /**
  * TODO: document your custom view class.
  */
-public class BasicDrawView extends View {
+public class XfermodesDrawView extends View {
 
     private Paint mPaint;
     private Bitmap b;
@@ -42,17 +32,17 @@ public class BasicDrawView extends View {
     private static final int W = 200;
     private static final int H = 200;
 
-    public BasicDrawView(Context context) {
+    public XfermodesDrawView(Context context) {
         super(context);
         init();
     }
 
-    public BasicDrawView(Context context, AttributeSet attrs) {
+    public XfermodesDrawView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public BasicDrawView(Context context, AttributeSet attrs, int defStyle) {
+    public XfermodesDrawView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
