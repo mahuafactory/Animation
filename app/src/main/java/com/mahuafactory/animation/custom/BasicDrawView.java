@@ -1,10 +1,12 @@
 package com.mahuafactory.animation.custom;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
+import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
@@ -58,6 +60,7 @@ public class BasicDrawView extends View {
     }
 
     private void init() {
+
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setTextSize(80);
@@ -67,13 +70,14 @@ public class BasicDrawView extends View {
 
         mSrcB = makeSrc(W, H);
         mDstB = makeDst(W, H);
-        Bitmap bm = Bitmap.createBitmap(new int[] { 0xFFFFFFFF, 0xFFCCCCCC,
-                        0xFFCCCCCC, 0xFFFFFFFF }, 2, 2,
+        Bitmap bm = Bitmap.createBitmap(new int[]{0xFFFFFFFF, 0xFFCCCCCC,
+                        0xFFCCCCCC, 0xFFFFFFFF}, 2, 2,
                 Bitmap.Config.RGB_565);
         mBG = new BitmapShader(bm,
                 Shader.TileMode.REPEAT,
                 Shader.TileMode.REPEAT);
     }
+
     private static final Xfermode[] sModes = {
             new PorterDuffXfermode(PorterDuff.Mode.CLEAR),
             new PorterDuffXfermode(PorterDuff.Mode.SRC),
@@ -95,35 +99,17 @@ public class BasicDrawView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.drawColor(Color.WHITE);
+//        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
-        Paint labelP = new Paint(Paint.ANTI_ALIAS_FLAG);
-        labelP.setTextAlign(Paint.Align.CENTER);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setColor(Color.BLUE);
 
-        Paint paint = new Paint();
-        paint.setFilterBitmap(false);
+        Path path = new Path();
 
-        canvas.translate(15, 35);
+        canvas.scale(2, 2);
+        path.addCircle(200, 200, 100, Path.Direction.CCW);
 
-        int x = 0;
-        int y = 0;
-
-
-
-
-            // draw the src/dst example into our offscreen bitmap
-            int sc = canvas.saveLayer(x, y, x + W, y + H, null,
-                    Canvas.MATRIX_SAVE_FLAG |
-                            Canvas.CLIP_SAVE_FLAG |
-                            Canvas.HAS_ALPHA_LAYER_SAVE_FLAG |
-                            Canvas.FULL_COLOR_LAYER_SAVE_FLAG |
-                            Canvas.CLIP_TO_LAYER_SAVE_FLAG);
-            canvas.translate(x, y);
-            canvas.drawBitmap(mDstB, 0, 0, paint);
-            paint.setXfermode(sModes[0]);
-            canvas.drawBitmap(mSrcB, 0, 0, paint);
-            paint.setXfermode(null);
-            canvas.restoreToCount(sc);
+        canvas.drawPath(path, paint);
     }
 
     static Bitmap makeSrc(int w, int h) {
@@ -132,7 +118,7 @@ public class BasicDrawView extends View {
         Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
 
         p.setColor(0xFF66AAFF);
-        c.drawRect(w/3, h/3, w*19/20, h*19/20, p);
+        c.drawRect(w / 3, h / 3, w * 19 / 20, h * 19 / 20, p);
         return bm;
     }
 
@@ -142,7 +128,7 @@ public class BasicDrawView extends View {
         Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
 
         p.setColor(0xFFFFCC44);
-        c.drawOval(new RectF(0, 0, w*3/4, h*3/4), p);
+        c.drawOval(new RectF(0, 0, w * 3 / 4, h * 3 / 4), p);
         return bm;
     }
 
