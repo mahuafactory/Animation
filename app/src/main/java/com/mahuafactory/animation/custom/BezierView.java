@@ -88,7 +88,7 @@ public class BezierView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        final float LINE_SMOOTHNESS = 0.1f;
+        final float LINE_SMOOTHNESS = 0.2f;
         float points[] = {200, 500, 400, 700, 600, 300, 800, 1000};
         final int lineSize = points.length / 2;
         float prePreviousPointX = Float.NaN;

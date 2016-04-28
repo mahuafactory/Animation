@@ -99,7 +99,53 @@ public class BasicDrawView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        Paint paint = new Paint();
+        paint.setTextSize(100);
+        paint.setColor(Color.BLUE);
 
+        Paint linePaint = new Paint();
+        linePaint.setStrokeWidth(1);
+        linePaint.setColor(Color.RED);
+
+        int baselineX = 100;
+        int baselineY = 500;
+        String text = "just for test";
+
+//        canvas.drawLine(baselineX, baselineY, 1000, baselineY, linePaint);
+//        canvas.drawLine(baselineX, baselineY, baselineX, 0, linePaint);
+
+        Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+        linePaint.setColor(Color.BLUE);
+        float ascent = baselineY + fontMetrics.ascent;
+        float descent = baselineY + fontMetrics.descent;
+        float top = baselineY + fontMetrics.top;
+        float bottom = baselineY + fontMetrics.bottom;
+
+        //绘制占据局域
+        float width = paint.measureText(text);
+        RectF rectF = new RectF(baselineX, top, baselineX + width, bottom);
+        paint.setColor(Color.RED);
+        canvas.drawRect(rectF, paint);
+
+        //绘制文字可见矩形
+        Rect minRect = new Rect();
+        paint.getTextBounds(text, 0, text.length(), minRect);
+        minRect.left += baselineX;
+        minRect.right += baselineX;
+        minRect.top += baselineY;
+        minRect.bottom += baselineY;
+        paint.setColor(Color.GREEN);
+        canvas.drawRect(minRect, paint);
+
+        //绘制文字
+        paint.setColor(Color.BLUE);
+        canvas.drawText(text, baselineX, baselineY, paint);
+
+
+//        canvas.drawLine(baselineX, ascent, 1000, ascent, linePaint);
+//        canvas.drawLine(baselineX, descent, 1000, descent, linePaint);
+//        canvas.drawLine(baselineX, top, 1000, top, linePaint);
+//        canvas.drawLine(baselineX, bottom, 1000, bottom, linePaint);
     }
 
     static Bitmap makeSrc(int w, int h) {
