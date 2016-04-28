@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnLayoutTransition;
     private Button mBtnBasicDraw;
     private Button mBtnXfermodes;
+    private Button mBtnBezierView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mBtnXfermodes = (Button) findViewById(R.id.btn_xfermodes);
 
+        mBtnBezierView = (Button) findViewById(R.id.btn_bezier_view);
+
         mBtnView.setOnClickListener(this);
         mBtnProperty.setOnClickListener(this);
         mBtnLayoutAnimation.setOnClickListener(this);
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnLayoutTransition.setOnClickListener(this);
         mBtnBasicDraw.setOnClickListener(this);
         mBtnXfermodes.setOnClickListener(this);
+        mBtnBezierView.setOnClickListener(this);
     }
 
     @Override
@@ -109,6 +113,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             break;
             case R.id.btn_xfermodes: {
                 Intent intent = new Intent(this, Xfermodes.class);
+                startActivity(intent);
+            }
+            break;
+            case R.id.btn_bezier_view: {
+                Intent intent = new Intent(this, BezierActivity.class);
                 startActivity(intent);
             }
             break;

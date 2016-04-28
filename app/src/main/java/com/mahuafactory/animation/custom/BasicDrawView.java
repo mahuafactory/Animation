@@ -99,17 +99,7 @@ public class BasicDrawView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-//        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.BLUE);
-
-        Path path = new Path();
-
-        canvas.scale(2, 2);
-        path.addCircle(200, 200, 100, Path.Direction.CCW);
-
-        canvas.drawPath(path, paint);
     }
 
     static Bitmap makeSrc(int w, int h) {

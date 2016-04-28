@@ -80,6 +80,16 @@
             android:text="xfermodes"/>
 
 
+        <com.mahuafactory.animation.custom.BaseGreenButton
+            android:background="@drawable/bg_green_circle_corner"
+            android:layout_toRightOf="@id/btn_xfermodes"
+            android:layout_below="@id/btn_layout_transition"
+            android:id="@+id/btn_bezier_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bezier"/>
+
+
     </RelativeLayout>
 
 
