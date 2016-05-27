@@ -88,7 +88,7 @@ public class BezierView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        final float LINE_SMOOTHNESS = 0.2f;
+        final float LINE_SMOOTHNESS = 0.4f;
         float points[] = {200, 500, 400, 700, 600, 300, 800, 1000};
         final int lineSize = points.length / 2;
         float prePreviousPointX = Float.NaN;
@@ -100,6 +100,11 @@ public class BezierView extends View {
         float nextPointX = Float.NaN;
         float nextPointY = Float.NaN;
         Path path = new Path();
+        Path linePath = new Path();
+        linePath.moveTo(points[0], points[1]);
+        linePath.lineTo(points[2],points[3]);
+        linePath.lineTo(points[4],points[5]);
+        linePath.lineTo(points[6],points[7]);
 
 
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -190,16 +195,22 @@ public class BezierView extends View {
             currentPointY = nextPointY;
         }
 
+        //绘制曲线
         canvas.drawPath(path, paint);
 
         path.reset();
         paint.setColor(Color.BLACK);
+        //绘制控制线
         canvas.drawPath(path1,paint);
 
         paint.setColor(Color.RED);
         paint.setStyle(Paint.Style.FILL);
         paint.setStrokeWidth(10);
         canvas.drawPoints(points, paint);
+        paint.setColor(Color.BLUE);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(2);
+//        canvas.drawPath(linePath, paint);
 
 
     }
